@@ -1,5 +1,13 @@
-extends layout
 
+extends layout
 block content
-  h1= title
-  p Welcome to #{title}
+  FCC-url-shortner-microservice API by m-alchemist
+  h2 url-shortner-microservice
+  p.red  Example Usage
+  code localhost:3000/new/http://www.google.com
+  br
+  code localhost:3000/r1lv4eL_ie
+
+  p.red Expected Output in JSON
+  br
+  code {"__v":0,"original_url":"http://www.google.com","_id":"58cad02e6a73a14039c3fbb5","short_url":"http://localhost:3000/r1lv4eL_ie"}

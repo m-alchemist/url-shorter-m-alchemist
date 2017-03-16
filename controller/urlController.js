@@ -18,8 +18,9 @@ res.render('index', { title: 'Express' })
   if(validUrl.isUri(urlProps)){
 
 
-  Url.create({original_url: urlProps, short_url: "http://localhost:3000/"+shortId.generate()})
-  .then((url)=>res.send(url))
+  Url.create({original_url: urlProps, short_url: shortId.generate()})
+  .then((url)=>res.send({original_url: url.original_url,
+    short_url: "localhost:3000/"+url.short_url}))
   .catch(next);
 }
 else{

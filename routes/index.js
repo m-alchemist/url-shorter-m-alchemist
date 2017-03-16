@@ -1,4 +1,3 @@
-
 var express = require('express');
 var shortid = require('shortid');
 var validUrl = require('valid-url');
