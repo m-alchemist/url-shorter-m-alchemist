@@ -10,12 +10,18 @@ var users = require('./routes/users');
 var mongoose=require('mongoose');
 var app = express();
 mongoose.Promise=global.Promise;
+
+var uristring =
+   process.env.MONGOLAB_URI ||
+   process.env.MONGOHQ_URL ||
+   'mongodb://localhost/shortURL';
+
 if(process.env.NODE_ENV!=='test'){
-mongoose.connect(process.env.MONGOLAB_URI,function(error){
+mongoose.connect(uristring,function(error){
   if(error)
   console.error(error)
   else {
-    console.log('mongolab connected')
+    console.log('connected to: '+uristring)
   }
 });
 }
