@@ -11,7 +11,7 @@ var mongoose=require('mongoose');
 var app = express();
 mongoose.Promise=global.Promise;
 if(process.env.NODE_ENV!=='test'){
-mongoose.connect(proccess.env.MONGOLAB_URI,function(error){
+mongoose.connect(process.env.MONGOLAB_URI,function(error){
   if(error)
   console.error(error)
   else {
