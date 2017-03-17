@@ -11,7 +11,13 @@ var mongoose=require('mongoose');
 var app = express();
 mongoose.Promise=global.Promise;
 if(process.env.NODE_ENV!=='test'){
-mongoose.connect('mongodb://localhost/shortURL');
+mongoose.connect(proccess.env.MONGOLAB_URI,function(error){
+  if(error)
+  console.error(error)
+  else {
+    console.log('mongolab connected')
+  }
+});
 }
 //watch for incoming req to the route
 //http://localhost:3050/api
