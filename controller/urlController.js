@@ -20,7 +20,7 @@ res.render('index', { title: 'Express' })
 
   Url.create({original_url: urlProps, short_url: shortId.generate()})
   .then((url)=>res.send({original_url: url.original_url,
-    short_url: "http://localhost:3000/"+url.short_url}))
+    short_url: "https://url-shortner-m-alchemist.herokuapp.com/"+url.short_url}))
   .catch(next);
 }
 else{
