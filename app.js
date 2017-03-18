@@ -13,7 +13,7 @@ mongoose.Promise=global.Promise;
 
 var mongoUri = process.env.MONGOLAB_URI || 'mongodb://localhost/app-dev';
 var mongoOptions = {db: {safe: true}};
-var port = process.env.PORT || 5000;
+var port = process.env.PORT || 3000;
 var baseUrl = process.env.BASE_URL || ('http://localhost:' + port + '/');
 
 var mongoose = require('mongoose');
