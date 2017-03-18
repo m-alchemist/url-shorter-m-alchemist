@@ -11,19 +11,18 @@ var mongoose=require('mongoose');
 var app = express();
 mongoose.Promise=global.Promise;
 
-var uristring =
-   process.env.MONGOLAB_URI ||
-   process.env.MONGOHQ_URL ||
-   'mongodb://localhost/shortURL';
-
+var mongoUri = process.env.MONGOLAB_URI || 'mongodb://localhost/app-dev';
 var mongoOptions = {db: {safe: true}};
-mongoose.connect(uristring,function(error){
-  if(error)
-  console.error(error)
-  else {
-    console.log('connected to: '+uristring)
-  }
-});
+var port = process.env.PORT || 5000;
+var baseUrl = process.env.BASE_URL || ('http://localhost:' + port + '/');
+
+var mongoose = require('mongoose');
+mongoose.connect(mongoUri, mongoOptions);
+mongoose.connection.on('error', function(err) {
+        console.error('MongoDB connection error: ' + err);
+        process.exit(-1);
+    }
+);
 
 //watch for incoming req to the route
 //http://localhost:3050/api
