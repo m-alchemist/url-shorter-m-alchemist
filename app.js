@@ -15,9 +15,9 @@ var mongoUri = process.env.MONGOLAB_URI || 'mongodb://localhost/app-dev';
 var mongoOptions = {db: {safe: true}};
 var port = process.env.PORT || 3000;
 var baseUrl = process.env.BASE_URL || ('http://localhost:' + port + '/');
-
+var urlConnection="mongodb://heroku_sm56z7t4:i020hsal10n52p54qq1vpck791@ds133340.mlab.com:33340/heroku_sm56z7t4";
 var mongoose = require('mongoose');
-mongoose.connect(mongoUri, mongoOptions);
+mongoose.connect(urlConnection, mongoOptions);
 mongoose.connection.on('error', function(err) {
         console.error('MongoDB connection error: ' + err);
         process.exit(-1);
