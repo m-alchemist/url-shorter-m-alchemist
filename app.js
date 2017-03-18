@@ -16,7 +16,7 @@ var uristring =
    process.env.MONGOHQ_URL ||
    'mongodb://localhost/shortURL';
 
-if(process.env.NODE_ENV!=='test'){
+var mongoOptions = {db: {safe: true}};
 mongoose.connect(uristring,function(error){
   if(error)
   console.error(error)
@@ -24,7 +24,7 @@ mongoose.connect(uristring,function(error){
     console.log('connected to: '+uristring)
   }
 });
-}
+
 //watch for incoming req to the route
 //http://localhost:3050/api
 app.use(bodyParser.json());
