@@ -1,4 +1,4 @@
-const urlController=require('../controller/urlcontroller');
+const urlController=require('../controller/urlController');
 
  module.exports=((app)=>{
    app.get('/', urlController.mainPage) ;
